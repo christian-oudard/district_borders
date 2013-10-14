@@ -79,11 +79,11 @@ def test_graph_edges():
 def test_segment_lattice_points():
     assert_equal(
         segment_lattice_points((0, 0), (0, 4)),
-        [(0, 1), (0, 2), (0, 3)],
+        [(0, 1), (0, 2), (0, 3)]
     )
     assert_equal(
         segment_lattice_points((2, 2), (5, 2)),
-        [(3, 2), (4, 2)],
+        [(3, 2), (4, 2)]
     )
     assert_equal(
         segment_lattice_points((-3, -3), (3, 3)),
@@ -91,15 +91,23 @@ def test_segment_lattice_points():
     )
     assert_equal(
         segment_lattice_points((0, 0), (6, 12)),
-        [(1, 2), (2, 4), (3, 6), (4, 8), (5, 10)],
+        [(1, 2), (2, 4), (3, 6), (4, 8), (5, 10)]
     )
     assert_equal(
         segment_lattice_points((0, 0), (4, 6)),
-        [(2, 3)],
+        [(2, 3)]
     )
     assert_equal(
         segment_lattice_points((0, 0), (5, 13)),
-        [],
+        []
+    )
+    assert_equal(
+        segment_lattice_points((-12, 4), (0, -8)),
+        [
+            (-11, 3), (-10, 2), (-9, 1), (-8, 0),
+            (-7, -1), (-6, -2), (-5, -3), (-4, -4),
+            (-3, -5), (-2, -6), (-1, -7),
+        ]
     )
 
 

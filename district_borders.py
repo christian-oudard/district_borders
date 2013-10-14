@@ -72,6 +72,7 @@ def segment_lattice_points(a, b):
     bx, by = b
     x = ax + step_x
     y = ay + step_y
+
     while x != bx or y != by:
         points.append((x, y))
         x += step_x
@@ -88,7 +89,7 @@ def fraction_slope(a, b):
     bx, by = b
     dx = bx - ax
     dy = by - ay
-    divisor = gcd(dx, dy)
+    divisor = gcd(abs(dx), abs(dy))
     return (
         dx // divisor,
         dy // divisor,
@@ -129,8 +130,8 @@ def continue_straight_lines(graph):
         for left_index in range(len(slopes)):
             for right_index in range(left_index + 1, len(slopes)):
                 if (
-                    slopes[left_index][0] == slopes[right_index][0] and
-                    slopes[left_index][1] == slopes[right_index][1]
+                    slopes[left_index][0] == -slopes[right_index][0] and
+                    slopes[left_index][1] == -slopes[right_index][1]
                 ):
                     # We have a match, so connect across this node.
                     left = neighbors[left_index]
